@@ -1,0 +1,29 @@
+create table Teacher
+( TeacherID int not null Primary key,
+  Name varchar(50) not null,
+  Surname varchar(50) not null,
+  Gender varchar(50) not null,
+  Subject varchar(50) not null
+  );
+  create table Pupil
+  (
+  StudentID int not null Primary key,
+  Name varchar(50) not null,
+  Surname varchar(50) not null,
+  Gender varchar(50) not null,
+  class varchar(50) not null
+  );
+  create table Relation(
+  ID int not null,
+  TeacherID int not null,
+  StudentID int not null
+  foreign key(TeacherID ) references Teacher(TeacherID),
+  foreign key(StudentID ) references Pupil(StudentID)
+  );
+
+  select Name
+  from 
+  Teacher
+  inner join  
+  relation on Relation.TeacherID = Teacher.TeacherID
+  where Relation.StudentID =1;
